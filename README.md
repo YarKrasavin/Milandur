@@ -1,1 +1,1 @@
-Вся на https://milandur.zenpower.space/store
+Вся на [milandur.zenpower.space/store](https://milandur.zenpower.space/store)
