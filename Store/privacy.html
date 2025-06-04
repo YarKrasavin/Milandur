@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности | Milandur Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0088cc;
+            --primary-dark: #006699;
+            --secondary: #ff6b00;
+            --secondary-dark: #e05d00;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --text: #333333;
+            --text-light: #666666;
+            
+            /* Новые переменные для темной темы */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --footer-bg: #1a1a1a;
+        }
+        
+        /* Темная тема */
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #1e1e1e;
+            --card-bg: #1e1e1e;
+            --footer-bg: #121212;
+            --gray: #2d2d2d;
+            --gray-dark: #3d3d3d;
+            --text-light: #a0a0a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Стили для переключателя темы */
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50px;
+            background: var(--gray);
+            transition: background 0.3s;
+        }
+        
+        .theme-switcher:hover {
+            background: var(--gray-dark);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .privacy-section {
+            padding: 5rem 0;
+        }
+        
+        .privacy-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .privacy-title h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .privacy-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        
+        .privacy-content h2 {
+            font-size: 1.75rem;
+            color: var(--text-color);
+            margin: 2rem 0 1rem;
+            transition: color 0.3s;
+        }
+        
+        .privacy-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin: 1.5rem 0 0.75rem;
+            transition: color 0.3s;
+        }
+        
+        .privacy-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .privacy-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .privacy-content li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        footer {
+            background: var(--footer-bg);
+            color: var(--light);
+            padding: 4rem 0 2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            color: var(--light);
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .privacy-section {
+                padding: 3rem 0;
+            }
+            
+            .privacy-content {
+                padding: 2rem;
+            }
+            
+            .privacy-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-star logo-icon"></i>
+                <span class="logo-text">Milandur <span>Store</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html#products" class="nav-link">Купить Stars</a>
+                <a href="index.html#reviews" class="nav-link">Отзывы</a>
+                <a href="index.html#how-it-works" class="nav-link">Как это работает</a>
+                <a href="index.html#contact" class="nav-link">Контакты</a>
+                <div class="theme-switcher" onclick="toggleTheme()">
+                    <i class="fas fa-moon theme-icon" id="themeIcon"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="privacy-section">
+        <div class="container">
+            <div class="privacy-title">
+                <h1>Политика конфиденциальности</h1>
+                <p>Последнее обновление: 1 января 2025 года</p>
+            </div>
+            
+            <div class="privacy-content">
+                <h2>1. Введение</h2>
+                <p>Milandur Store ("мы", "нас", "наш") уважает вашу конфиденциальность и обязуется защищать ваши личные данные. В этой политике конфиденциальности объясняется, как мы собираем, используем и защищаем вашу информацию при использовании нашего сервиса по продаже Telegram Stars.</p>
+                
+                <h2>2. Какие данные мы собираем</h2>
+                <p>Мы можем собирать следующую информацию:</p>
+                <ul>
+                    <li>Ваш Telegram username (без символа @)</li>
+                    <li>Информацию о ваших покупках (количество Stars, сумма платежа)</li>
+                    <li>Технические данные (IP-адрес, тип браузера, версия ОС)</li>
+                </ul>
+                
+                <h2>3. Как мы используем ваши данные</h2>
+                <p>Мы используем собранную информацию для:</p>
+                <ul>
+                    <li>Обработки ваших заказов и доставки Stars</li>
+                    <li>Улучшения качества нашего сервиса</li>
+                    <li>Предотвращения мошенничества и обеспечения безопасности</li>
+                    <li>Соблюдения юридических обязательств</li>
+                </ul>
+                
+                <h2>4. Хранение и защита данных</h2>
+                <p>Мы принимаем разумные меры для защиты вашей информации:</p>
+                <ul>
+                    <li>Данные хранятся на защищенных серверах</li>
+                    <li>Используем шифрование для передачи информации</li>
+                    <li>Ограничиваем доступ к данным только необходимым сотрудникам</li>
+                </ul>
+                
+                <h2>5. Обмен данными с третьими лицами</h2>
+                <p>Мы не продаем и не передаем ваши личные данные третьим лицам, за исключением:</p>
+                <ul>
+                    <li>Провайдеров платежных услуг (для обработки платежей)</li>
+                    <li>Когда это требуется по закону или для защиты наших прав</li>
+                </ul>
+                
+                <h2>6. Ваши права</h2>
+                <p>Вы имеете право:</p>
+                <ul>
+                    <li>Запросить доступ к вашим личным данным</li>
+                    <li>Исправить неточные данные</li>
+                    <li>Удалить ваши данные (если нет юридических оснований для их хранения)</li>
+                    <li>Ограничить обработку ваших данных</li>
+                </ul>
+                
+                <h2>7. Изменения в политике</h2>
+                <p>Мы можем обновлять эту политику конфиденциальности время от времени. Все изменения будут опубликованы на этой странице с указанием даты последнего обновления.</p>
+                
+                <h2>8. Контакты</h2>
+                <p>Если у вас есть вопросы о нашей политике конфиденциальности, вы можете связаться с нами через Telegram: <a href="https://t.me/milandur_support_bot" target="_blank">@milandur_support_bot</a>.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Milandur Store</h3>
+                    <p>Сервис для покупки Telegram Stars по лучшим ценам. Быстрая доставка и надежный сервис.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/milandur_store" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="https://discord.gg/PS2y4ERNFJ" class="social-link"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Меню</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#products">Купить Stars</a></li>
+                        <li><a href="index.html#reviews">Отзывы</a></li>
+                        <li><a href="index.html#how-it-works">Как это работает</a></li>
+                        <li><a href="index.html#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Юридическая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Milandur Store. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Проверяем сохраненную тему в localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeIcon').classList.remove('fa-moon');
+            document.getElementById('themeIcon').classList.add('fa-sun');
+        }
+        
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+    </script>
+</body>
+</html>
