@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milandur Store | Telegram Stars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0088cc;
+            --primary-dark: #006699;
+            --secondary: #ff6b00;
+            --secondary-dark: #e05d00;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --text: #333333;
+            --text-light: #666666;
+            
+            /* Новые переменные для темной темы */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --footer-bg: #1a1a1a;
+        }
+        
+        /* Темная тема */
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #1e1e1e;
+            --card-bg: #1e1e1e;
+            --footer-bg: #121212;
+            --gray: #2d2d2d;
+            --gray-dark: #3d3d3d;
+            --text-light: #a0a0a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        header {
+            background-color: var(--header-bg);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Стили для переключателя темы */
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50px;
+            background: var(--gray);
+            transition: background 0.3s;
+        }
+        
+        .theme-switcher:hover {
+            background: var(--gray-dark);
+        }
+        
+        .theme-icon {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #34b7f1);
+            color: var(--light);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://telegram.org/file/400780400211/3/uHYl1Xl7S5c.232636/a0c192b76e2ebea3ea') center/cover;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+        }
+        
+        .btn i {
+            font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            transition: color 0.3s;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .stars-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .pricing-card-price {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .pricing-card-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .price-comparison {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+        
+        .price-comparison .original-price {
+            text-decoration: line-through;
+        }
+        
+        .price-comparison .savings {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        .pricing-card-btn {
+            width: 100%;
+            margin-top: 1.5rem;
+            background: var(--primary);
+            border: none;
+        }
+        
+        .pricing-card-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .how-it-works {
+            background: var(--gray);
+            transition: background 0.3s;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: background-color 0.3s;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .step p {
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        /* Модальное окно для оформления заказа */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--gray-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+        
+        .close-modal:hover {
+            color: var(--text-color);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-dark);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .order-summary {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            transition: background 0.3s;
+        }
+        
+        .order-summary h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .order-summary p {
+            font-weight: 500;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--gray-dark);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .btn-secondary {
+            background: var(--gray-dark);
+            color: var(--text-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gray);
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+        
+        .success-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-message h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .success-message p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        footer {
+            background: var(--footer-bg);
+            color: var(--light);
+            padding: 4rem 0 2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            color: var(--light);
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Новые стили для кнопки оформления заказа */
+        .checkout-btn-container {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .checkout-btn {
+            background: var(--secondary);
+            color: var(--light);
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+        }
+
+        .checkout-btn:hover {
+            background: var(--secondary-dark);
+        }
+        
+        /* Стили для секции отзывов */
+        .reviews-section {
+            background-color: var(--gray);
+            transition: background 0.3s;
+        }
+        
+        .reviews-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .review-card {
+            min-width: 300px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            scroll-snap-align: start;
+            transition: background-color 0.3s;
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
+        .review-stars {
+            color: #ffc107;
+            margin: 0.5rem 0;
+        }
+        
+        .review-text {
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+            }
+            
+            .review-card {
+                min-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-star logo-icon"></i>
+                <span class="logo-text">Milandur <span>Store</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#products" class="nav-link">Купить Stars</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#how-it-works" class="nav-link">Как это работает</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+                <div class="theme-switcher" onclick="toggleTheme()">
+                    <i class="fas fa-moon theme-icon" id="themeIcon"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Остальной код остается без изменений -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Telegram Stars для поддержки создателей</h1>
+            <p>Быстрая доставка Stars после оплаты. Без скрытых комиссий — только честные цены!</p>
+            <a href="#products" class="btn">
+                <i class="fas fa-shopping-cart"></i> Купить сейчас
+            </a>
+        </div>
+    </section>
+    
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Выберите количество Stars</h2>
+                <p>Купите Stars для поддержки ваших любимых создателей контента в Telegram</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <i class="fas fa-star stars-icon"></i>
+                        <h3 class="pricing-card-title">50 Stars</h3>
+                        <div class="pricing-card-price">90 <span>₽</span></div>
+                        <div class="price-comparison">
+                            <span class="original-price">Нету в Telegram</span> · 
+                            <span class="savings">Экономия если нужно меньше 100 Stars</span>
+                        </div>
+                    </div>
+                    <button class="btn pricing-card-btn" onclick="selectProduct('50 Stars - 90 ₽', 90)">
+                        Выбрать
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <i class="fas fa-star stars-icon"></i>
+                        <h3 class="pricing-card-title">100 Stars</h3>
+                        <div class="pricing-card-price">170 <span>₽</span></div>
+                        <div class="price-comparison">
+                            <span class="original-price">179 ₽ в Telegram</span> · 
+                            <span class="savings">Экономия 9 ₽</span>
+                        </div>
+                    </div>
+                    <button class="btn pricing-card-btn" onclick="selectProduct('100 Stars - 170 ₽', 170)">
+                        Выбрать
+                    </button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Популярный</div>
+                    <div class="pricing-card-header">
+                        <i class="fas fa-star stars-icon"></i>
+                        <h3 class="pricing-card-title">250 Stars</h3>
+                        <div class="pricing-card-price">400 <span>₽</span></div>
+                        <div class="price-comparison">
+                            <span class="original-price">424 ₽ в Telegram</span> · 
+                            <span class="savings">Экономия 24 ₽</span>
+                        </div>
+                    </div>
+                    <button class="btn pricing-card-btn" onclick="selectProduct('250 Stars - 400 ₽', 400)">
+                        Выбрать
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <i class="fas fa-star stars-icon"></i>
+                        <h3 class="pricing-card-title">500 Stars</h3>
+                        <div class="pricing-card-price">750 <span>₽</span></div>
+                        <div class="price-comparison">
+                            <span class="original-price">830 ₽ в Telegram</span> · 
+                            <span class="savings">Экономия 80 ₽</span>
+                        </div>
+                    </div>
+                    <button class="btn pricing-card-btn" onclick="selectProduct('500 Stars - 750 ₽', 750)">
+                        Выбрать
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <i class="fas fa-star stars-icon"></i>
+                        <h3 class="pricing-card-title">1000 Stars</h3>
+                        <div class="pricing-card-price">1 550 <span>₽</span></div>
+                        <div class="price-comparison">
+                            <span class="original-price">1 650 ₽ в Telegram</span> · 
+                            <span class="savings">Экономия 100 ₽</span>
+                        </div>
+                    </div>
+                    <button class="btn pricing-card-btn" onclick="selectProduct('1000 Stars - 1 550 ₽', 1550)">
+                        Выбрать
+                    </button>
+                </div>
+            </div>
+
+            <div class="checkout-btn-container" id="checkoutBtnContainer">
+                <button class="btn checkout-btn" onclick="proceedToPayment()">
+                    <i class="fas fa-arrow-right"></i> Перейти к оформлению
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="reviews" class="section reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы наших клиентов</h2>
+                <p>Что говорят люди о нашем сервисе</p>
+            </div>
+            
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">P</div>
+                        <div>
+                            <div class="review-author">platonmouse🪿</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">
+                        Покупал 3 раза, всё пришло. Быстро, надёжно🐯🐯🐯
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">R</div>
+                        <div>
+                            <div class="review-author">Rakzaid</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        Мне лень
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">А</div>
+                        <div>
+                            <div class="review-author">Азалия</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">
+                        Покупала 100 звезд , пришли очень быстро, спасибо большое 🙏
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">К</div>
+                        <div>
+                            <div class="review-author">Кира</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">
+                        Ну все хорошо, звезды пришли быстро, все супер, классно.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-it-works" class="section how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Как это работает</h2>
+                <p>Процесс покупки Stars прост и занимает всего несколько минут</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Выберите количество Stars</h3>
+                    <p>Выберите нужный пакет Stars из доступных вариантов</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Оформите заказ</h3>
+                    <p>Заполните простую форму с вашими данными для заказа</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Получите Stars</h3>
+                    <p>После оплаты Stars будут зачислены на ваш аккаунт в течении 15 минут</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Оформление заказа</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="paymentForm">
+                    <div class="form-group">
+                        <label for="telegramUsername">Ваш Telegram username</label>
+                        <input type="text" id="telegramUsername" class="form-control" placeholder="username (без @)" required>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <h4>Ваш заказ:</h4>
+                        <p id="orderSummaryText"></p>
+                    </div>
+                </div>
+                
+                <div class="success-message" id="afterDownload">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h3>Заказ оформлен!</h3>
+                    <p>Отправьте скачанный файл в нашу поддержку Telegram для подтверждения</p>
+                    <a href="https://t.me/milandur_support_bot" class="btn" target="_blank">
+                        <i class="fab fa-telegram"></i> Перейти в поддержку
+                    </a>
+                </div>
+            </div>
+            
+            <div class="modal-footer" id="modalFooter">
+                <button class="btn btn-secondary" onclick="closeModal()">Отмена</button>
+                <button class="btn" onclick="generateOrderTXT()">
+                    <i class="fas fa-download"></i> Скачать заказ
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Milandur Store</h3>
+                    <p>Сервис для покупки Telegram Stars по лучшим ценам. Быстрая доставка и надежный сервис.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/milandur_store" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="https://discord.gg/PS2y4ERNFJ" class="social-link"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Меню</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Купить Stars</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                        <li><a href="#how-it-works">Как это работает</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/milandur_support_bot" target="_blank">Telegram поддержка</a></li>
+                        <!-- <li><a href="mailto:support@milandur.store">support@milandur.store</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Milandur Store. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let selectedProduct = '';
+        let selectedPrice = 0;
+        
+        // Проверяем сохраненную тему в localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeIcon').classList.remove('fa-moon');
+            document.getElementById('themeIcon').classList.add('fa-sun');
+        }
+        
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        
+        function selectProduct(productInfo, price) {
+            selectedProduct = productInfo;
+            selectedPrice = price;
+            
+            // Update UI
+            document.querySelectorAll('.pricing-card-btn').forEach(btn => {
+                btn.textContent = 'Выбрать';
+                btn.style.backgroundColor = 'var(--primary)';
+            });
+            
+            event.currentTarget.textContent = 'Выбрано';
+            event.currentTarget.style.backgroundColor = 'var(--primary-dark)';
+            
+            // Показать кнопку оформления заказа
+            document.getElementById('checkoutBtnContainer').style.display = 'block';
+            
+            // Плавный скролл к кнопке оформления заказа
+            setTimeout(() => {
+                const btnContainer = document.getElementById('checkoutBtnContainer');
+                const offset = btnContainer.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            }, 300);
+        }
+        
+        function proceedToPayment() {
+            if (!selectedProduct) {
+                alert('Пожалуйста, выберите количество Stars');
+                return;
+            }
+            
+            document.getElementById('orderSummaryText').textContent = selectedProduct;
+            
+            // Сбросить состояние успешного сообщения
+            document.getElementById('afterDownload').style.display = 'none';
+            document.getElementById('paymentForm').style.display = 'block';
+            document.getElementById('modalFooter').style.display = 'flex';
+            
+            // Показать модальное окно
+            document.getElementById('paymentModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('paymentModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function generateOrderTXT() {
+            const username = document.getElementById('telegramUsername').value.trim();
+            
+            if (!username) {
+                alert('Пожалуйста, укажите ваш Telegram username');
+                return;
+            }
+            
+            // Создаем содержимое TXT файла
+            const content = [
+                '=== Milandur Store - Заказ Stars ===',
+                '',
+                `Дата заказа: ${new Date().toLocaleDateString()}`,
+                `Telegram username: @${username}`,
+                '',
+                '=== Информация о заказе ===',
+                selectedProduct,
+                '',
+                `Итого к оплате: ${selectedPrice.toLocaleString('ru-RU')} ₽`,
+                '',
+                '=== Инструкция по оплате ===',
+                '1. Оплатите заказ по реквизитам, которые вам предоставит поддержка',
+                '2. Отправьте этот файл в нашу поддержку Telegram: @milandur_support_bot',
+                '3. После подтверждения оплаты Stars будут зачислены'
+            ].join('\n');
+            
+            // Создаем Blob с содержимым
+            const blob = new Blob([content], { type: 'text/plain' });
+            
+            // Создаем ссылку для скачивания
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Milandur_Stars_Order_${username}.txt`;
+            
+            // Добавляем ссылку в документ и эмулируем клик
+            document.body.appendChild(a);
+            a.click();
+            
+            // Удаляем ссылку после скачивания
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Показываем сообщение об успехе
+            document.getElementById('afterDownload').style.display = 'block';
+            document.getElementById('paymentForm').style.display = 'none';
+            document.getElementById('modalFooter').style.display = 'none';
+        }
+        
+        // Закрытие модального окна при клике вне его
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
