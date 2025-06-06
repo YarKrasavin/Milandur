@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milandur Store | Telegram Stars</title>
+    <title>Milandur Store | Магазин</title>
+    <meta name="description" content="Milandur Store - Покупайте Telegram Stars и другие цифровые товары по лучшим ценам.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -247,304 +248,82 @@
             transition: color 0.3s;
         }
         
-        .pricing-cards {
+        /* Стили для карточек категорий */
+        .category-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         
-        .pricing-card {
+        .category-card {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 2rem;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
             border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
         
-        .pricing-card:hover {
+        .category-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
         
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
+        .category-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
         
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--primary);
-            color: var(--light);
+        .category-card-image.stars {
+            background-image: url('https://telegram.org/file/400780400211/3/uHYl1Xl7S5c.232636/a0c192b76e2ebea3ea');
+        }
+        
+        .category-card-image.coming-soon-1 {
+            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
+            background-color: #f0f0f0;
+        }
+        
+        .category-card-image.coming-soon-2 {
+            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
+            background-color: #f0f0f0;
+        }
+        
+        .category-card-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .category-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex: 1;
+            transition: color 0.3s;
+        }
+        
+        .coming-soon-label {
+            display: inline-block;
+            background: rgba(0,0,0,0.1);
+            color: var(--text-light);
             padding: 0.25rem 1rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
-        }
-        
-        .pricing-card-header {
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .stars-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .pricing-card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-        
-        .pricing-card-price {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .pricing-card-price span {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-        
-        .price-comparison {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-        }
-        
-        .price-comparison .original-price {
-            text-decoration: line-through;
-        }
-        
-        .price-comparison .savings {
-            color: #4CAF50;
-            font-weight: 600;
-        }
-        
-        .pricing-card-btn {
-            width: 100%;
-            margin-top: 1.5rem;
-            background: var(--primary);
-            border: none;
-        }
-        
-        .pricing-card-btn:hover {
-            background: var(--primary-dark);
-        }
-        
-        .how-it-works {
-            background: var(--gray);
-            transition: background 0.3s;
-        }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .step {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            transition: background-color 0.3s;
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .step h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .step p {
-            color: var(--text-light);
-            transition: color 0.3s;
-        }
-        
-        /* Модальное окно для оформления заказа */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            overflow-y: auto;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .modal.show {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 1;
-        }
-        
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: 12px;
-            width: 100%;
-            max-width: 600px;
-            margin: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(20px);
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        
-        .modal.show .modal-content {
-            transform: translateY(0);
-        }
-        
-        .modal-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--gray-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.2s;
-        }
-        
-        .close-modal:hover {
-            color: var(--text-color);
-        }
-        
-        .modal-body {
-            padding: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--gray-dark);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .order-summary {
-            background: var(--gray);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            transition: background 0.3s;
-        }
-        
-        .order-summary h4 {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            transition: color 0.3s;
-        }
-        
-        .order-summary p {
-            font-weight: 500;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .modal-footer {
-            padding: 1.5rem 2rem;
-            border-top: 1px solid var(--gray-dark);
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-        }
-        
-        .btn-secondary {
-            background: var(--gray-dark);
-            color: var(--text-color);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--gray);
-        }
-        
-        .success-message {
-            text-align: center;
-            padding: 2rem;
-            display: none;
-        }
-        
-        .success-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .success-message h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .success-message p {
-            color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-top: auto;
         }
         
         footer {
@@ -625,86 +404,6 @@
             font-size: 0.9rem;
         }
 
-        /* Новые стили для кнопки оформления заказа */
-        .checkout-btn-container {
-            text-align: center;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            display: none;
-        }
-
-        .checkout-btn {
-            background: var(--secondary);
-            color: var(--light);
-            padding: 1rem 3rem;
-            font-size: 1.1rem;
-        }
-
-        .checkout-btn:hover {
-            background: var(--secondary-dark);
-        }
-        
-        /* Стили для секции отзывов */
-        .reviews-section {
-            background-color: var(--gray);
-            transition: background 0.3s;
-        }
-        
-        .reviews-container {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding: 1rem 0;
-            scroll-snap-type: x mandatory;
-        }
-        
-        .review-card {
-            min-width: 300px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            scroll-snap-align: start;
-            transition: background-color 0.3s;
-        }
-        
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-        
-        .review-author {
-            font-weight: 600;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .review-stars {
-            color: #ffc107;
-            margin: 0.5rem 0;
-        }
-        
-        .review-text {
-            color: var(--text-color);
-            line-height: 1.6;
-            transition: color 0.3s;
-        }
-        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -731,12 +430,8 @@
                 font-size: 2rem;
             }
             
-            .modal-content {
-                margin: 1rem;
-            }
-            
-            .review-card {
-                min-width: 85%;
+            .category-cards {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -749,8 +444,7 @@
                 <span class="logo-text">Milandur <span>Store</span></span>
             </a>
             <nav class="nav-links">
-                <a href="#products" class="nav-link">Купить Stars</a>
-                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#products" class="nav-link">Каталог</a>
                 <a href="#contact" class="nav-link">Контакты</a>
                 <div class="theme-switcher" onclick="toggleTheme()">
                     <i class="fas fa-moon theme-icon" id="themeIcon"></i>
@@ -759,13 +453,12 @@
         </div>
     </header>
     
-    <!-- Остальной код остается без изменений -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Telegram Stars для поддержки создателей</h1>
-            <p>Быстрая доставка Stars после оплаты. Низкие цены и качество!</p>
+            <h1>Магазин цифровых товаров</h1>
+            <p>Покупайте Telegram Stars и другие цифровые товары по лучшим ценам</p>
             <a href="#products" class="btn">
-                <i class="fas fa-shopping-cart"></i> Купить сейчас
+                <i class="fas fa-shopping-cart"></i> Перейти в каталог
             </a>
         </div>
     </section>
@@ -773,264 +466,49 @@
     <section id="products" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Выберите количество Stars</h2>
-                <p>Купите Stars для поддержки ваших любимых создателей контента в Telegram</p>
+                <h2>Наши товары</h2>
+                <p>Выберите категорию товаров, которую хотите приобрести</p>
             </div>
             
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">50 Stars</h3>
-                        <div class="pricing-card-price">90 <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">Нету в Telegram</span> · 
-                            <span class="savings">Эконом вариант</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('50 Stars - 90 ₽', 90)">
-                        Выбрать
-                    </button>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">100 Stars</h3>
-                        <div class="pricing-card-price">170 <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">179 ₽ в Telegram</span> · 
-                            <span class="savings">Экономия 9 ₽</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('100 Stars - 170 ₽', 170)">
-                        Выбрать
-                    </button>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Популярный</div>
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">250 Stars</h3>
-                        <div class="pricing-card-price">400 <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">424 ₽ в Telegram</span> · 
-                            <span class="savings">Экономия 24 ₽</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('250 Stars - 400 ₽', 400)">
-                        Выбрать
-                    </button>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">500 Stars</h3>
-                        <div class="pricing-card-price">749 <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">829 ₽ в Telegram</span> · 
-                            <span class="savings">Экономия 80 ₽</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('500 Stars - 749 ₽', 749)">
-                        Выбрать
-                    </button>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">1000 Stars</h3>
-                        <div class="pricing-card-price">1 550 <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">1 650 ₽ в Telegram</span> · 
-                            <span class="savings">Экономия 100 ₽</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('1000 Stars - 1 550 ₽', 1550)">
-                        Выбрать
-                    </button>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-card-header">
-                        <i class="fas fa-star stars-icon"></i>
-                        <h3 class="pricing-card-title">+ Stars</h3>
-                        <div class="pricing-card-price">? <span>₽</span></div>
-                        <div class="price-comparison">
-                            <span class="original-price">? ₽ в Telegram</span> · 
-                            <span class="savings">Экономия ? ₽</span>
-                        </div>
-                    </div>
-                    <button class="btn pricing-card-btn" onclick="selectProduct('+ Stars - ? ₽', 0)">
-                        Выбрать
-                    </button>
-                </div>
-            </div>
-
-            <div class="checkout-btn-container" id="checkoutBtnContainer">
-                <button class="btn checkout-btn" onclick="proceedToPayment()">
-                    <i class="fas fa-arrow-right"></i> Перейти к оформлению
-                </button>
-            </div>
-        </div>
-    </section>
-    
-    <section id="reviews" class="section reviews-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Отзывы наших клиентов</h2>
-                <p>Что говорят люди о нашем сервисе</p>
-            </div>
-            
-            <div class="reviews-container">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">P</div>
-                        <div>
-                            <div class="review-author">platonmouse🪿</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Покупал 3 раза, всё пришло. Быстро, надёжно🐯🐯🐯
+            <div class="category-cards">
+                <div class="category-card">
+                    <div class="category-card-image stars"></div>
+                    <div class="category-card-content">
+                        <h3>Telegram Stars</h3>
+                        <p>Купите Stars для поддержки ваших любимых создателей контента в Telegram. Быстрая доставка и выгодные цены.</p>
+                        <a href="/stars" class="btn">
+                            <i class="fas fa-arrow-right"></i> Перейти к покупке
+                        </a>
                     </div>
                 </div>
                 
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">R</div>
-                        <div>
-                            <div class="review-author">Rakzaid</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        Мне лень
+                <div class="category-card">
+                    <div class="category-card-image coming-soon-1"></div>
+                    <div class="category-card-content">
+                        <h3>Секретный товар #1</h3>
+                        <p>Скоро в нашем магазине появится новый товар. Следите за обновлениями!</p>
+                        <span class="coming-soon-label">Скоро</span>
                     </div>
                 </div>
                 
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">А</div>
-                        <div>
-                            <div class="review-author">Азалия</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Покупала 100 звезд , пришли очень быстро, спасибо большое 🙏
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">К</div>
-                        <div>
-                            <div class="review-author">Кира</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Ну все хорошо, звезды пришли быстро, все супер, классно.
+                <div class="category-card">
+                    <div class="category-card-image coming-soon-2"></div>
+                    <div class="category-card-content">
+                        <h3>Секретный товар #2</h3>
+                        <p>Мы готовим для вас что-то особенное. Оставайтесь на связи!</p>
+                        <span class="coming-soon-label">Скоро</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="how-it-works" class="section how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>Как это работает</h2>
-                <p>Процесс покупки Stars прост и занимает всего несколько минут</p>
-            </div>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Выберите количество Stars</h3>
-                    <p>Выберите нужный пакет Stars из доступных вариантов</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Оформите заказ</h3>
-                    <p>Заполните простую форму с вашими данными для заказа</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Получите Stars</h3>
-                    <p>После оплаты Stars будут зачислены на ваш аккаунт в течении 15 минут</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <div class="modal" id="paymentModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Оформление заказа</h3>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-            </div>
-            
-            <div class="modal-body">
-                <div id="paymentForm">
-                    <div class="form-group">
-                        <label for="telegramUsername">Ваш Telegram username</label>
-                        <input type="text" id="telegramUsername" class="form-control" placeholder="username (без @)" required>
-                    </div>
-                    
-                    <div class="order-summary">
-                        <h4>Ваш заказ:</h4>
-                        <p id="orderSummaryText"></p>
-                    </div>
-                </div>
-                
-                <div class="success-message" id="afterDownload">
-                    <i class="fas fa-check-circle success-icon"></i>
-                    <h3>Заказ оформлен!</h3>
-                    <p>Отправьте скачанный файл в нашу поддержку Telegram для подтверждения</p>
-                    <a href="https://t.me/milandur_support_bot" class="btn" target="_blank">
-                        <i class="fab fa-telegram"></i> Перейти в поддержку
-                    </a>
-                </div>
-            </div>
-            
-            <div class="modal-footer" id="modalFooter">
-                <button class="btn btn-secondary" onclick="closeModal()">Отмена</button>
-                <button class="btn" onclick="generateOrderTXT()">
-                    <i class="fas fa-download"></i> Скачать заказ
-                </button>
-            </div>
-        </div>
-    </div>
     
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Milandur Store</h3>
-                    <p>Сервис для покупки Telegram Stars по лучшим ценам. Быстрая доставка и надежный сервис.</p>
+                    <p>Магазин цифровых товаров. Telegram Stars и другие услуги по лучшим ценам.</p>
                     <div class="social-links">
                         <a href="https://t.me/milandur_store" class="social-link"><i class="fab fa-telegram"></i></a>
                         <a href="https://discord.gg/PS2y4ERNFJ" class="social-link"><i class="fab fa-discord"></i></a>
@@ -1046,21 +524,13 @@
                     </ul>
                 </div>
                 
-                <!-- <div class="footer-col">
+                <div class="footer-col">
                     <h3>Контакты</h3>
                     <ul class="footer-links">
                         <li><a href="https://t.me/milandur_support_bot" target="_blank">Telegram поддержка</a></li>
-                        <li><a href="mailto:support@milandur.store">support@milandur.store</a></li> -->
-                    <!-- </ul>
+                        <li><a href="mailto:support@milandur.store">support@milandur.store</a></li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Юридическая информация</h3>
-                <ul class="footer-links">
-                    <li><a href="privacy">Политика конфиденциальности</a></li>
-                </ul>
-                </div> -->
             </div>
 
             <div class="copyright">
@@ -1070,9 +540,6 @@
     </footer>
     
     <script>
-        let selectedProduct = '';
-        let selectedPrice = 0;
-        
         // Проверяем сохраненную тему в localStorage
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -1096,113 +563,6 @@
                 localStorage.setItem('darkMode', 'disabled');
             }
         }
-        
-        function selectProduct(productInfo, price) {
-            selectedProduct = productInfo;
-            selectedPrice = price;
-            
-            // Update UI
-            document.querySelectorAll('.pricing-card-btn').forEach(btn => {
-                btn.textContent = 'Выбрать';
-                btn.style.backgroundColor = 'var(--primary)';
-            });
-            
-            event.currentTarget.textContent = 'Выбрано';
-            event.currentTarget.style.backgroundColor = 'var(--primary-dark)';
-            
-            // Показать кнопку оформления заказа
-            document.getElementById('checkoutBtnContainer').style.display = 'block';
-            
-            // Плавный скролл к кнопке оформления заказа
-            setTimeout(() => {
-                const btnContainer = document.getElementById('checkoutBtnContainer');
-                const offset = btnContainer.getBoundingClientRect().top + window.pageYOffset - 100;
-                window.scrollTo({
-                    top: offset,
-                    behavior: 'smooth'
-                });
-            }, 300);
-        }
-        
-        function proceedToPayment() {
-            if (!selectedProduct) {
-                alert('Пожалуйста, выберите количество Stars');
-                return;
-            }
-            
-            document.getElementById('orderSummaryText').textContent = selectedProduct;
-            
-            // Сбросить состояние успешного сообщения
-            document.getElementById('afterDownload').style.display = 'none';
-            document.getElementById('paymentForm').style.display = 'block';
-            document.getElementById('modalFooter').style.display = 'flex';
-            
-            // Показать модальное окно
-            document.getElementById('paymentModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            document.getElementById('paymentModal').classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-        
-        function generateOrderTXT() {
-            const username = document.getElementById('telegramUsername').value.trim();
-            
-            if (!username) {
-                alert('Пожалуйста, укажите ваш Telegram username');
-                return;
-            }
-            
-            // Создаем содержимое TXT файла
-            const content = [
-                '=== Milandur Store - Заказ Stars ===',
-                '',
-                `Дата заказа: ${new Date().toLocaleDateString()}`,
-                `Telegram username: @${username}`,
-                '',
-                '=== Информация о заказе ===',
-                selectedProduct,
-                '',
-                `Итого к оплате: ${selectedPrice.toLocaleString('ru-RU')} ₽`,
-                '',
-                '=== Инструкция по оплате ===',
-                '1. Оплатите заказ по реквизитам, которые вам предоставит поддержка',
-                '2. Отправьте этот файл в нашу поддержку Telegram: @milandur_support_bot',
-                '3. После подтверждения оплаты Stars будут зачислены'
-            ].join('\n');
-            
-            // Создаем Blob с содержимым
-            const blob = new Blob([content], { type: 'text/plain' });
-            
-            // Создаем ссылку для скачивания
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Milandur_Stars_Order_${username}.txt`;
-            
-            // Добавляем ссылку в документ и эмулируем клик
-            document.body.appendChild(a);
-            a.click();
-            
-            // Удаляем ссылку после скачивания
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            // Показываем сообщение об успехе
-            document.getElementById('afterDownload').style.display = 'block';
-            document.getElementById('paymentForm').style.display = 'none';
-            document.getElementById('modalFooter').style.display = 'none';
-        }
-        
-        // Закрытие модального окна при клике вне его
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('paymentModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
