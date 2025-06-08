@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milandur Store - Магазин</title>
-    
-    <meta name="description" content="Milandur Store - Telegram Stars и другие цифровые товары по лучшим ценам.">
+    <title>Milandur Store - Условия использования</title>
+
+    <meta name="description" content="Milandur Store - условия использования сервиса по покупке Telegram Stars.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -152,180 +152,65 @@
             color: var(--text-color);
         }
         
-        .hero {
-            background: linear-gradient(135deg, var(--primary), #34b7f1);
-            color: var(--light);
-            padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://telegram.org/file/400780400211/3/uHYl1Xl7S5c.232636/a0c192b76e2ebea3ea') center/cover;
-            opacity: 0.1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 2.75rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: var(--secondary);
-            color: var(--light);
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
-        }
-        
-        .btn:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
-        }
-        
-        .btn i {
-            font-size: 1rem;
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
         
-        .section {
+        .terms-section {
             padding: 5rem 0;
         }
         
-        .section-title {
+        .terms-title {
             text-align: center;
             margin-bottom: 3rem;
         }
         
-        .section-title h2 {
-            font-size: 2.25rem;
+        .terms-title h1 {
+            font-size: 2.5rem;
             color: var(--text-color);
             margin-bottom: 1rem;
             transition: color 0.3s;
         }
         
-        .section-title p {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-            transition: color 0.3s;
-        }
-        
-        /* Стили для карточек категорий */
-        .category-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .category-card {
+        .terms-content {
             background: var(--card-bg);
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
         }
         
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        
-        .category-card-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        
-        .category-card-image.stars {
-            background-image: url('https://telegram.org/file/400780400211/3/uHYl1Xl7S5c.232636/a0c192b76e2ebea3ea');
-        }
-        
-        .category-card-image.coming-soon-1 {
-            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
-            background-color: #f0f0f0;
-        }
-        
-        .category-card-image.coming-soon-2 {
-            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
-            background-color: #f0f0f0;
-        }
-        
-        .category-card-content {
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .category-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .terms-content h2 {
+            font-size: 1.75rem;
             color: var(--text-color);
+            margin: 2rem 0 1rem;
+            transition: color 0.3s;
+        }
+        
+        .terms-content h3 {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin: 1.5rem 0 0.75rem;
+            transition: color 0.3s;
+        }
+        
+        .terms-content p {
+            color: var(--text-light);
             margin-bottom: 1rem;
             transition: color 0.3s;
         }
         
-        .category-card p {
-            color: var(--text-light);
+        .terms-content ul {
             margin-bottom: 1.5rem;
-            flex: 1;
-            transition: color 0.3s;
+            padding-left: 2rem;
         }
         
-        .coming-soon-label {
-            display: inline-block;
-            background: rgba(0,0,0,0.1);
+        .terms-content li {
             color: var(--text-light);
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: auto;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
         }
         
         footer {
@@ -405,7 +290,7 @@
             color: rgba(255,255,255,0.5);
             font-size: 0.9rem;
         }
-
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -416,24 +301,16 @@
                 gap: 1rem;
             }
             
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section {
+            .terms-section {
                 padding: 3rem 0;
             }
             
-            .section-title h2 {
-                font-size: 2rem;
+            .terms-content {
+                padding: 2rem;
             }
             
-            .category-cards {
-                grid-template-columns: 1fr;
+            .terms-title h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -446,8 +323,9 @@
                 <span class="logo-text">Milandur <span>Store</span></span>
             </a>
             <nav class="nav-links">
-                <a href="#products" class="nav-link">Каталог</a>
-                <!-- <a href="privacy" class="nav-link">Политика конфиденциальности</a> -->
+                <a href="/store" class="nav-link">Каталог</a>
+                <a href="privacy" class="nav-link">Политика конфиденциальности</a>
+                <a href="terms" class="nav-link">Условия использования</a>
                 <a href="#contact" class="nav-link">Контакты</a>
                 <div class="theme-switcher" onclick="toggleTheme()">
                     <i class="fas fa-moon theme-icon" id="themeIcon"></i>
@@ -456,52 +334,62 @@
         </div>
     </header>
     
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Магазин цифровых товаров</h1>
-            <p>Покупайте Telegram Stars и другие цифровые товары по лучшим ценам</p>
-            <a href="#products" class="btn">
-                <i class="fas fa-shopping-cart"></i> Перейти в каталог
-            </a>
-        </div>
-    </section>
-    
-    <section id="products" class="section">
+    <section class="terms-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Наши товары</h2>
-                <p>Выберите категорию товаров, которую хотите приобрести</p>
+            <div class="terms-title">
+                <h1>Условия использования</h1>
+                <p>Последнее обновление: 5 июня 2025 года</p>
             </div>
             
-            <div class="category-cards">
-                <div class="category-card">
-                    <div class="category-card-image stars"></div>
-                    <div class="category-card-content">
-                        <h3>Telegram Stars</h3>
-                        <p>Купите Stars для поддержки ваших любимых создателей контента в Telegram. Быстрая доставка и выгодные цены.</p>
-                        <a href="stars" class="btn">
-                            <i class="fas fa-arrow-right"></i> Перейти к покупке
-                        </a>
-                    </div>
-                </div>
+            <div class="terms-content">
+                <h2>1. Общие положения</h2>
+                <p>1.1. Настоящие Условия использования ("Условия") регулируют отношения между Milandur Store ("Сервис", "мы", "нас") и пользователями ("Пользователь", "вы") по поводу использования сервиса по продаже Telegram Stars.</p>
+                <p>1.2. Используя наш Сервис, вы соглашаетесь с настоящими Условиями. Если вы не согласны с ними, пожалуйста, не используйте наш Сервис.</p>
                 
-                <div class="category-card">
-                    <div class="category-card-image coming-soon-1"></div>
-                    <div class="category-card-content">
-                        <h3>Секретный товар #1</h3>
-                        <p>Скоро в нашем магазине появится новый товар. Следите за обновлениями!</p>
-                        <span class="coming-soon-label">Скоро</span>
-                    </div>
-                </div>
+                <h2>2. Описание сервиса</h2>
+                <p>2.1. Milandur Store предоставляет услуги по продаже виртуальной валюты Telegram Stars ("Stars") для использования в Telegram.</p>
+                <p>2.2. Stars являются собственностью Telegram и регулируются условиями использования Telegram.</p>
                 
-                <div class="category-card">
-                    <div class="category-card-image coming-soon-2"></div>
-                    <div class="category-card-content">
-                        <h3>Секретный товар #2</h3>
-                        <p>Мы готовим для вас что-то особенное. Оставайтесь на связи!</p>
-                        <span class="coming-soon-label">Скоро</span>
-                    </div>
-                </div>
+                <h2>3. Регистрация и учетная запись</h2>
+                <p>3.1. Для совершения покупок вам необходимо предоставить ваш Telegram username (без символа @).</p>
+                <p>3.2. Вы обязаны обеспечить точность и актуальность предоставляемой информации.</p>
+                <p>3.3. Вы несете ответственность за сохранность вашей учетной записи Telegram.</p>
+                
+                <h2>4. Порядок совершения покупок</h2>
+                <p>4.1. Вы выбираете количество Stars для покупки и подтверждаете заказ.</p>
+                <p>4.2. Оплата производится через интегрированные платежные системы.</p>
+                <p>4.3. После успешной оплаты Stars будут зачислены на ваш аккаунт Telegram в течение 24 часов.</p>
+                <p>4.4. В случае задержки более 24 часов, обратитесь в нашу поддержку.</p>
+                
+                <h2>5. Возврат средств</h2>
+                <p>5.1. Возврат средств возможен только в случае, если Stars не были доставлены по вине Сервиса.</p>
+                <p>5.2. Для инициации возврата обратитесь в поддержку в течение 7 дней с момента покупки.</p>
+                <p>5.3. Возврат производится на тот же способ оплаты, с которого была совершена покупка.</p>
+                
+                <h2>6. Ограничения ответственности</h2>
+                <p>6.1. Мы не несем ответственности за:</p>
+                <ul>
+                    <li>Использование Stars после их передачи в Telegram</li>
+                    <li>Блокировку или ограничения вашего аккаунта Telegram</li>
+                    <li>Изменения в политике Telegram относительно Stars</li>
+                    <li>Прямые или косвенные убытки, связанные с использованием сервиса</li>
+                </ul>
+                
+                <h2>7. Запрещенное использование</h2>
+                <p>7.1. Запрещается использовать Сервис для:</p>
+                <ul>
+                    <li>Мошеннических или незаконных действий</li>
+                    <li>Обхода ограничений Telegram</li>
+                    <li>Любой деятельности, нарушающей законы вашей страны</li>
+                </ul>
+                <p>7.2. Мы оставляем право отказать в обслуживании без объяснения причин.</p>
+                
+                <h2>8. Изменения условий</h2>
+                <p>8.1. Мы можем изменять настоящие Условия. Изменения вступают в силу с момента их публикации на этой странице.</p>
+                <p>8.2. Продолжение использования Сервиса после изменений означает ваше согласие с новыми Условиями.</p>
+                
+                <h2>9. Контакты</h2>
+                <p>По всем вопросам, связанным с настоящими Условиями, обращайтесь в нашу поддержку через Telegram: <a href="https://t.me/milandur_support_bot" target="_blank">@milandur_support_bot</a>.</p>
             </div>
         </div>
     </section>
@@ -575,7 +463,7 @@
                 localStorage.setItem('darkMode', 'disabled');
             }
         }
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
