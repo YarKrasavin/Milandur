@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milandur Store - Магазин</title>
+    <title>Milandur - Главная</title>
     
-    <meta name="description" content="Milandur Store - Telegram Stars и другие цифровые товары по лучшим ценам.">
+    <meta name="description" content="Milandur - Store, VPN и другие цифровые сервисы.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -221,6 +221,16 @@
             font-size: 1rem;
         }
         
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--light);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -285,14 +295,13 @@
             background-image: url('https://telegram.org/file/400780400211/3/uHYl1Xl7S5c.232636/a0c192b76e2ebea3ea');
         }
         
-        .category-card-image.coming-soon-1 {
-            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
-            background-color: #f0f0f0;
+        .category-card-image.vpn {
+            background-image: url('https://images.unsplash.com/photo-1605651203974-1d7b7e5fdeb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
         }
         
-        .category-card-image.coming-soon-2 {
-            background-image: url('https://via.placeholder.com/600x400?text=Coming+Soon');
-            background-color: #f0f0f0;
+        .category-card-image.secret {
+            background-image: url('https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-position: center 30%;
         }
         
         .category-card-content {
@@ -486,6 +495,38 @@
             font-size: 0.9rem;
         }
 
+        /* Стили для секции с призывом к действию */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--light);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -515,20 +556,24 @@
             .review-card {
                 min-width: 85%;
             }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <a href="/store" class="logo">
+            <a href="/" class="logo">
                 <i class="fas fa-star logo-icon"></i>
-                <span class="logo-text">Milandur <span>Store</span></span>
+                <span class="logo-text">Milandur</span>
             </a>
             <nav class="nav-links">
-                <a href="/store" class="nav-link">Каталог</a>
-                <a href="giveaways" class="nav-link">Розыгрыши</a>
-                <a href="#contact" class="nav-link">Контакты</a>
+                <a href="/store" class="nav-link">Магазин</a>
+                <a href="#vpn" class="nav-link">VPN</a>
                 <div class="theme-switcher" onclick="toggleTheme()">
                     <i class="fas fa-moon theme-icon" id="themeIcon"></i>
                 </div>
@@ -538,158 +583,80 @@
     
     <section class="hero">
         <div class="hero-content">
-            <h1>Магазин цифровых товаров</h1>
-            <p>Покупайте Telegram Stars и другие цифровые товары по лучшим ценам</p>
-            <a href="#products" class="btn">
-                <i class="fas fa-shopping-cart"></i> Перейти в каталог
-            </a>
+            <h1>Цифровые сервисы нового поколения</h1>
+            <p>Store, VPN и другие эксклюзивные продукты для вашего комфорта в сети</p>
+            <div class="btn-group">
+                <a href="#services" class="btn">
+                    <i class="fas fa-arrow-down"></i> Узнать больше
+                </a>
+            </div>
         </div>
     </section>
     
-    <section id="products" class="section">
+    <section id="services" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Наши товары</h2>
-                <p>Выберите категорию товаров, которую хотите приобрести</p>
+                <h2>Наши сервисы</h2>
+                <p>Выберите продукт, который вас интересует</p>
             </div>
             
             <div class="category-cards">
                 <div class="category-card">
                     <div class="category-card-image stars"></div>
                     <div class="category-card-content">
-                        <h3>Telegram Stars</h3>
+                        <h3>Milandur Store</h3>
                         <p>Купите Stars для поддержки ваших любимых создателей контента в Telegram. Быстрая доставка и выгодные цены.</p>
-                        <a href="stars" class="btn">
-                            <i class="fas fa-arrow-right"></i> Перейти к покупке
+                        <a href="/store" class="btn">
+                            <i class="fas fa-arrow-right"></i> Перейти в магазин
                         </a>
                     </div>
                 </div>
                 
                 <div class="category-card">
-                    <div class="category-card-image coming-soon-1"></div>
+                    <div class="category-card-image vpn"></div>
                     <div class="category-card-content">
-                        <h3>Секретный товар #1</h3>
-                        <p>Скоро в нашем магазине появится новый товар. Следите за обновлениями!</p>
-                        <span class="coming-soon-label">Скоро</span>
+                        <h3>Milandur VPN</h3>
+                        <p>Быстрый и безопасный VPN сервис с защитой приватности и возможностью обхода блокировок.</p>
+                        <a href="/vpn" class="btn">
+                            <i class="fas fa-shield-alt"></i> Подробнее о VPN
+                        </a>
                     </div>
                 </div>
                 
                 <div class="category-card">
-                    <div class="category-card-image coming-soon-2"></div>
+                    <div class="category-card-image secret"></div>
                     <div class="category-card-content">
-                        <h3>Секретный товар #2</h3>
-                        <p>Мы готовим для вас что-то особенное. Оставайтесь на связи!</p>
-                        <span class="coming-soon-label">Скоро</span>
+                        <h3>Секретный проект</h3>
+                        <p>Мы готовим для вас что-то особенное. Скоро раскроем все карты!</p>
+                        <a href="#secret" class="btn">
+                            <i class="fas fa-lock-open"></i> Узнать больше
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="reviews" class="section reviews-section">
+    <section id="secret" class="section" style="background-color: var(--gray);">
         <div class="container">
             <div class="section-title">
-                <h2>Что говорят о нас?</h2>
+                <h2><i class="fas fa-lock"></i> Секретный раздел</h2>
+                <p>Скоро здесь появится что-то особенное</p>
             </div>
             
-            <div class="reviews-container">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar" style="background-color: #4CAF50;">P</div>
-                        <div>
-                            <div class="review-author">platonmouse🪿</div>
-                            <div class="review-date">15 июня 2025</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Покупал 3 раза, всё пришло. Быстро, надёжно🐯🐯🐯
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar" style="background-color: #2196F3;">R</div>
-                        <div>
-                            <div class="review-author">Rakzaid</div>
-                            <div class="review-date">1 апреля 2025</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Мне лень, вроде работает
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar" style="background-color: #9C27B0;">А</div>
-                        <div>
-                            <div class="review-author">Азалия</div>
-                            <div class="review-date">5 июня 2025</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Покупала 100 звезд, пришли очень быстро, спасибо большое 🙏
-                    </div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar" style="background-color: #FF9800;">К</div>
-                        <div>
-                            <div class="review-author">Кира</div>
-                            <div class="review-date">1 июня 2025</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Ну все хорошо, звезды пришли быстро, все супер, классно.
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar" style="background-color: #E91E63;">М</div>
-                        <div>
-                            <div class="review-author">Матвей Чадаев</div>
-                            <div class="review-date">28 мая 2025</div>
-                        </div>
-                    </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-text">
-                        Отличный сервис! Быстрая доставка и приятные цены. <a href="https://bytebin.lucko.me/zwnCXiVYXG" style="color: var(--primary);">Подробный отзыв</a>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 1.5rem;">Мы работаем над секретным проектом</h3>
+                    <p style="margin-bottom: 2rem;">В этом разделе скоро появится информация о нашем новом продукте, который изменит ваш опыт использования цифровых сервисов.</p>
+                    <p style="margin-bottom: 2rem;">Подпишитесь на наши новости, чтобы быть первыми, кто узнает об этом!</p>
+                    
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://t.me/milandur" class="btn">
+                            <i class="fab fa-telegram"></i> Telegram канал
+                        </a>
+                        <a href="https://discord.gg/PS2y4ERNFJ" class="btn btn-secondary">
+                            <i class="fab fa-discord"></i> Discord сервер
+                        </a>
                     </div>
                 </div>
             </div>
@@ -700,27 +667,35 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>Milandur Store</h3>
-                    <p>Сервис для покупки Telegram Stars по лучшим ценам. Быстрая доставка и надежный сервис.</p>
+                    <h3>Milandur</h3>
+                    <p>Инновационные цифровые сервисы для вашего комфорта в интернете.</p>
                     <div class="social-links">
-                        <a href="https://t.me/milandur_store" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/milandur" class="social-link"><i class="fab fa-telegram"></i></a>
                         <a href="https://discord.gg/PS2y4ERNFJ" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/milandur" class="social-link"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
-                    <h3>Полезное</h3>
+                    <h3>Сервисы</h3>
                     <ul class="footer-links">
+                        <li><a href="/store">Milandur Store</a></li>
+                        <li><a href="/vpn">Milandur VPN</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Поддержка</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/milandur_support_bot">Техническая поддержка</a></li>
                         <li><a href="privacy">Политика конфиденциальности</a></li>
                         <li><a href="terms">Условия использования</a></li>
-                        <li><a href="https://t.me/milandur_support_bot" target="_blank">Telegram поддержка</a></li>
-                        <li><a href="https://t.me/milandur_store">Блог</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="copyright">
-                <p>© 2025 Milandur Store. Все права защищены.</p>
+                <p>© 2025 Milandur. Все права защищены.</p>
             </div>
         </div>
     </footer>
