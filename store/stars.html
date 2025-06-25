@@ -708,6 +708,43 @@
             transition: color 0.3s;
         }
         
+        /* Новые стили для информации о заказе */
+        .order-info {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .screenshot-instruction {
+            background: var(--gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: background 0.3s;
+        }
+        
+        .screenshot-instruction h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .screenshot-instruction ol {
+            padding-left: 1.5rem;
+        }
+        
+        .screenshot-instruction li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -763,7 +800,6 @@
         </div>
     </header>
     
-    <!-- Остальной код остается без изменений -->
     <section class="hero">
         <div class="hero-content">
             <h1>Telegram Stars для поддержки создателей</h1>
@@ -943,23 +979,33 @@
                         <h4>Ваш заказ:</h4>
                         <p id="orderSummaryText"></p>
                     </div>
+                    
+                    <button class="btn" style="width: 100%;" onclick="confirmOrder()">
+                        <i class="fas fa-check"></i> Подтвердить заказ
+                    </button>
                 </div>
                 
                 <div class="success-message" id="afterDownload">
                     <i class="fas fa-check-circle success-icon"></i>
                     <h3>Заказ оформлен!</h3>
-                    <p>Отправьте скачанный файл в нашу поддержку Telegram для подтверждения</p>
+                    
+                    <div class="order-info" id="orderInfoContent">
+                        <!-- Сюда будет вставлена информация о заказе -->
+                    </div>
+                    
+                    <div class="screenshot-instruction">
+                        <h4>Инструкция по оплате:</h4>
+                        <ol>
+                            <li>Сделайте скриншот этой страницы (нажмите PrintScreen или используйте инструмент для скриншотов)</li>
+                            <li>Отправьте скриншот в нашу поддержку Telegram: @milandur_support_bot</li>
+                            <li>После подтверждения оплаты Stars будут зачислены на ваш аккаунт</li>
+                        </ol>
+                    </div>
+                    
                     <a href="https://t.me/milandur_support_bot" class="btn" target="_blank">
                         <i class="fab fa-telegram"></i> Перейти в поддержку
                     </a>
                 </div>
-            </div>
-            
-            <div class="modal-footer" id="modalFooter">
-                <button class="btn btn-secondary" onclick="closeModal()">Отмена</button>
-                <button class="btn" onclick="generateOrderTXT()">
-                    <i class="fas fa-download"></i> Скачать заказ
-                </button>
             </div>
         </div>
     </div>
@@ -985,22 +1031,6 @@
                         <li><a href="https://t.me/milandur_store">Блог</a></li>
                     </ul>
                 </div>
-                
-                <!-- <div class="footer-col">
-                    <h3>Контакты</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://t.me/milandur_support_bot" target="_blank">Telegram поддержка</a></li>
-                        <li><a href="mailto:support@milandur.store">support@milandur.store</a></li> -->
-                    <!-- </ul>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Юридическая информация</h3>
-                <ul class="footer-links">
-                    <li><a href="privacy">Политика конфиденциальности</a></li>
-                </ul>
-                </div> -->
             </div>
 
             <div class="copyright">
@@ -1075,7 +1105,6 @@
             // Сбросить состояние успешного сообщения
             document.getElementById('afterDownload').style.display = 'none';
             document.getElementById('paymentForm').style.display = 'block';
-            document.getElementById('modalFooter').style.display = 'flex';
             
             // Показать модальное окно
             document.getElementById('paymentModal').classList.add('show');
@@ -1087,7 +1116,7 @@
             document.body.style.overflow = 'auto';
         }
         
-        function generateOrderTXT() {
+        function confirmOrder() {
             const username = document.getElementById('telegramUsername').value.trim();
             
             if (!username) {
@@ -1095,7 +1124,7 @@
                 return;
             }
             
-            // Создаем содержимое TXT файла
+            // Создаем содержимое для отображения
             const content = [
                 '=== Milandur Store - Заказ Stars ===',
                 '',
@@ -1109,31 +1138,19 @@
                 '',
                 '=== Инструкция по оплате ===',
                 '1. Оплатите заказ по реквизитам, которые вам предоставит поддержка',
-                '2. Отправьте этот файл в нашу поддержку Telegram: @milandur_support_bot',
+                '2. Отправьте скриншот этого сообщения в нашу поддержку Telegram: @milandur_support_bot',
                 '3. После подтверждения оплаты Stars будут зачислены'
             ].join('\n');
             
-            // Создаем Blob с содержимым
-            const blob = new Blob([content], { type: 'text/plain' });
-            
-            // Создаем ссылку для скачивания
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Milandur_Stars_Order_${username}.txt`;
-            
-            // Добавляем ссылку в документ и эмулируем клик
-            document.body.appendChild(a);
-            a.click();
-            
-            // Удаляем ссылку после скачивания
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            // Вставляем информацию о заказе
+            document.getElementById('orderInfoContent').textContent = content;
             
             // Показываем сообщение об успехе
             document.getElementById('afterDownload').style.display = 'block';
             document.getElementById('paymentForm').style.display = 'none';
-            document.getElementById('modalFooter').style.display = 'none';
+            
+            // Прокручиваем к верхней части сообщения
+            document.getElementById('afterDownload').scrollIntoView({ behavior: 'smooth' });
         }
         
         // Закрытие модального окна при клике вне его
